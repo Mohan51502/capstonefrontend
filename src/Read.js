@@ -42,7 +42,9 @@ function Read() {
             <div className='mb-2'>
                 <strong>Role: {data.role}</strong>
             </div>
-            <Link to={`/update/${_id}`} className='btn btn-success'>Edit</Link>
+            <div className='mb-2'>
+                <strong>Phone Number: {data.phonenumber}</strong>
+            </div>
             <Link to="/viewusers" className='btn btn-primary ms-3'>Back</Link>
         </div>
 

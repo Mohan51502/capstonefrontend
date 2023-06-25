@@ -48,12 +48,7 @@ function Read() {
             <div className='mb-2'>
                 <strong>Description: {data.desc}</strong>
             </div>
-            <div className='mb-2'>
-                <strong>Available From: {data.fromtime}</strong>
-            </div> 
-            <div className='mb-2'>
-                <strong>Till: {data.totime}</strong>
-            </div>
+           
             <Link to="/mentorpickedquery" className='btn btn-danger ms-3'>Back</Link>
         </div>
 

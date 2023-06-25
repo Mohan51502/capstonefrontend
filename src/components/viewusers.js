@@ -66,7 +66,7 @@ export default function Viewusers() {
                             <td>
                                 <Link to={`/read/${d._id}`} className='btn btn-sm btn-info me-2'>Read</Link>
 
-                                <Link to={`/update/${d._id}`} className='btn btn-sm btn-primary me-2'>Edit</Link>
+                                {/* <Link to={`/update/${d._id}`} className='btn btn-sm btn-primary me-2'>Edit</Link> */}
                                 <button  onClick={ e => handledelete(d._id)} className='btn btn-sm btn-danger'>Delete</button>
                             </td>
 

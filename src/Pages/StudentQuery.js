@@ -83,7 +83,7 @@ const _id = localStorage.getItem("_id");
 
 
                             </td>
-                            <td>Mentor name</td>
+                            <td>{d.mentorid}</td>
                             <td>{d.status}</td>
 
 

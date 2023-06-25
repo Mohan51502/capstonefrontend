@@ -26,7 +26,7 @@ const ForgotPassword = () => {
 
         const data = await res.json()
 
-        if (data.status == 201) {
+        if (data.status == 200) {
             console.log("user valid")
         } else {
             history("*")

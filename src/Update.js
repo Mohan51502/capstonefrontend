@@ -16,6 +16,8 @@ function Update() {
     fname: "",
     email: "",
     role:"",
+    course:"",
+    phonenumber:"",
    
 });
 

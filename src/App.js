@@ -14,7 +14,7 @@ import "./App.css";
 import Viewusers from "./components/viewusers";
 import Adduser from "./components/Adduser";
 import Read from "./Read";
-import Update from "./Update";
+//import Update from "./Update";
 import 'bootstrap/dist/css/bootstrap.min.css'
 import MentorDashboard from "./components/MentorDashboard";
 import AdminDashboard from "./components/AdminDashboard";
@@ -35,7 +35,6 @@ import Leaderboard from "./Pages/Leaderboard";
 import Syllabus from "./Pages/Syllabus";
 import Placementboard from "./Pages/Placementboard";
 import Interviewtask from "./Pages/Interviewtask";
-import axios from "axios";
 import LeaveApplication from "./Pages/LeaveApplication";
 import ViewStudent from "./Pages/ViewStudent";
 import ViewMentor from "./Pages/ViewMentor";
@@ -134,7 +133,7 @@ function App() {
               <Route path="/adduser" element={<Adduser />} />
               <Route path="/viewusers" element={<Viewusers />} />
               <Route path="/read/:_id" element={<Read />} />
-              <Route path="/update/:_id" element={<Update />} />
+              {/* <Route path="/update/:_id" element={<Update />} /> */}
               <Route path="/read" element={<Read />} />
               <Route path="/mentordash" element={<MentorDashboard />} />
               <Route path="/admindash" element={<AdminDashboard />} />

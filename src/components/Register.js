@@ -18,7 +18,7 @@ const Register = () => {
         cpassword: ""
     });
 
-    const PHNUMBER_REGEX = /^(\+\d{1,3}[- ]?)?\d{10}$/;
+    //const PHNUMBER_REGEX = /^(\+\d{1,3}[- ]?)?\d{10}$/;
 
 
 
