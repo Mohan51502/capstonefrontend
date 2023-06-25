@@ -11,10 +11,12 @@ const Query = () => {
         voice: "",
         title: "",
         desc: "",
+        userid:"",
     });
 
-
-
+const id = localStorage.getItem("_id");
+const userid= id;
+console.log(id);
 
     const setVal = (e) => {
         // console.log(e.target.value);
@@ -46,13 +48,13 @@ const Query = () => {
             // console.log("user registration succesfully done");
 
 
-            const data = await fetch("http://localhost:5000/query/create", {
+            const data = await fetch("https://capstonebackend-ivdw.onrender.com/query/create", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json"
                 },
                 body: JSON.stringify({
-                  category,voice,title,desc
+                  category,voice,title,desc,userid
                 })
             });
             console.log(data)
@@ -65,7 +67,7 @@ const Query = () => {
                 toast.success("Query Created  Successfully  😃!", {
                     position: "top-center"
                 });
-                setInpval({ ...inpval, category: "", voice: "",title: "",desc:""});
+                setInpval({ ...inpval, category: "", voice: "",title: "",desc:"",userid:""});
             }
         }
     }
@@ -85,6 +87,7 @@ const Query = () => {
                             <label htmlFor="role">category    </label>
                             <br/><br/>
                             <select name="category" id="category" onChange={setVal} value={inpval.category}>
+                            <option >Select Category</option>
 
     <option >Zen-Class Doubt</option>
  <option >Placement Related</option>
@@ -96,6 +99,7 @@ const Query = () => {
                             <label htmlFor="role">Prefered Voice Communication Language    </label>
                             <br/><br/>
                             <select name="voice" id="voice" onChange={setVal} value={inpval.voice}>
+                            <option >Select Language</option>
 
     <option >English</option>
  <option >Hindi</option>

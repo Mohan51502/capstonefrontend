@@ -12,9 +12,10 @@ const LeaveApplication = () => {
         from: "",
         to: "",
         reason: "",
+        userid: "",
     });
 
-
+const userid = localStorage.getItem("_id");
 
 
     const setVal = (e) => {
@@ -47,13 +48,13 @@ const LeaveApplication = () => {
             // console.log("user registration succesfully done");
 
 
-            const data = await fetch("http://localhost:5000/leave/create", {
+            const data = await fetch("https://capstonebackend-ivdw.onrender.com/leave/create", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json"
                 },
                 body: JSON.stringify({
-                  days,from,to,reason
+                  days,from,to,reason,userid
                 })
             });
            // console.log(data)
@@ -66,7 +67,7 @@ const LeaveApplication = () => {
                 toast.success("Leave Application Successfully Submitted 😃!", {
                     position: "top-center"
                 });
-                setInpval({ ...inpval, days: "", from: "",to: "",reason:""});
+                setInpval({ ...inpval, days: "", from: "",to: "",reason:"" ,userid:""});
             }
         }
     }

@@ -17,7 +17,7 @@ const ForgotPassword = () => {
     const [message, setMessage] = useState("");
 
     const userValid = async () => {
-        const res = await fetch(`http://localhost:5000/user/forgotpassword/${id}/${token}`, {
+        const res = await fetch(`https://capstonebackend-ivdw.onrender.com/user/forgotpassword/${id}/${token}`, {
             method: "GET",
             headers: {
                 "Content-Type": "application/json"
@@ -50,7 +50,7 @@ const ForgotPassword = () => {
                 position: "top-center"
             });
         } else {
-            const res = await fetch(`http://localhost:5000/user/${id}/${token}`, {
+            const res = await fetch(`https://capstonebackend-ivdw.onrender.com/user/${id}/${token}`, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json"
@@ -60,7 +60,7 @@ const ForgotPassword = () => {
 
             const data = await res.json()
 
-            if (data.status == 201) {
+            if (data.status === 200) {
                 setPassword("")
                 setMessage(true)
             } else {
@@ -73,9 +73,7 @@ const ForgotPassword = () => {
 
     useEffect(() => {
         userValid()
-        setTimeout(() => {
             setData(true)
-        }, 3000)
     }, [])
 
     return (

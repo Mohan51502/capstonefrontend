@@ -17,7 +17,7 @@ function Read() {
     function range(){
 
 
-        axios.get('http://localhost:5000/query/getAllQuery/'+ _id)
+        axios.get('https://capstonebackend-ivdw.onrender.com/query/getAllQuery/'+ _id)
         .then(res =>setData(res.data.data))
         .catch(err =>console.log(err))
         //console.log(data)
@@ -48,7 +48,13 @@ function Read() {
             <div className='mb-2'>
                 <strong>Description: {data.desc}</strong>
             </div>
-            <Link to="/mentorquery" className='btn btn-danger ms-3'>Back</Link>
+            <div className='mb-2'>
+                <strong>Available From: {data.fromtime}</strong>
+            </div> 
+            <div className='mb-2'>
+                <strong>Till: {data.totime}</strong>
+            </div>
+            <Link to="/mentorpickedquery" className='btn btn-danger ms-3'>Back</Link>
         </div>
 
 

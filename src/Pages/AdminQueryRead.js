@@ -17,7 +17,7 @@ function AdminQueryRead() {
     function range(){
 
 
-        axios.get('http://localhost:5000/query/getAllQuery/'+ _id)
+        axios.get('https://capstonebackend-ivdw.onrender.com/query/getAllQuery/'+ _id)
         .then(res =>setData(res.data.data))
         .catch(err =>console.log(err))
         //console.log(data)

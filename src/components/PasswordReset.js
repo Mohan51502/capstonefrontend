@@ -23,7 +23,7 @@ const PasswordReset = () => {
                 position: "top-center"
             });
         } else {
-            const res = await fetch("http://localhost:5000/user/sendpasswordlink", {
+            const res = await fetch("https://capstonebackend-ivdw.onrender.com/user/sendpasswordlink", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json"
@@ -33,7 +33,7 @@ const PasswordReset = () => {
 
             const data = await res.json();
 
-            if (data.status == 201) {
+            if (data.status == 200) {
                 setEmail("");
                 setMessage(true)
             } else {

@@ -7,8 +7,9 @@ export default function Leave() {
 
     
     const [data ,setData] = useState([])
+    const _id = localStorage.getItem("_id")
     useEffect(()=>{
-        axios.get('http://localhost:5000/leave/getAllLeave')
+        axios.get(`https://capstonebackend-ivdw.onrender.com/leave/getUserleaveOnly/${_id}`)
         .then(res =>setData(res.data.data))
         .catch(err =>console.log(err))
 
@@ -33,6 +34,7 @@ export default function Leave() {
                     <th>Days</th>
                     <th>From</th>
                     <th>To</th>
+                    <th>Reason</th>
 
 
                 </tr>
@@ -45,6 +47,7 @@ export default function Leave() {
                             <td>{d.days}</td>
                             <td>{d.from}</td>
                             <td>{d.to}</td>
+                            <td>{d.reason}</td>
                            
 
 

@@ -2,25 +2,26 @@ import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 
-export default function MentorQuery() {
+export default function MentorPickedQuery() {
 
 
     const _id = localStorage.getItem("_id");
     const [data ,setData] = useState([])
     useEffect(()=>{
-        axios.get('https://capstonebackend-ivdw.onrender.com/query/getAllQuery')
+        axios.get(`https://capstonebackend-ivdw.onrender.com/query/getmentorQuery/${_id}`)
         .then(res =>setData(res.data.data))
         .catch(err =>console.log(err))
 
     },[])
 
-    function handleQuery(d){
-        axios.put(`https://capstonebackend-ivdw.onrender.com/query/querypick/${_id}?_id=${d._id}`)
+ 
+    function handleclose(d){
+        axios.put(`https://capstonebackend-ivdw.onrender.com/query/queryreopen/${d._id}`)
         .then(res =>setData(res.data.data))
         .catch(err =>console.log(err))
     }
 
-   
+
    
 
   return (
@@ -30,8 +31,7 @@ export default function MentorQuery() {
 
 
         <div className='d-flex justify-content-start'>
-        <Link to="/mentordash" className='btn btn-danger addbutton'>Back</Link>
-        <Link to="/mentorpickedquery" className='btn btn-primary addbutton'>Picked Query</Link>
+        <Link to="/mentorquery" className='btn btn-danger addbutton'>Back</Link>
 
 
 
@@ -44,10 +44,9 @@ export default function MentorQuery() {
                     <th>Category</th>
                     <th>Prefered Voive</th>
                     <th>Title</th>
-                    <th>Pick Query</th>
-                    
+                    <th>Action</th>
+                    <th>Close Query</th>
                     <th>Status</th>
-                    <th>Mentor Id</th>
 
 
 
@@ -62,15 +61,13 @@ export default function MentorQuery() {
                             <td>{d.voice}</td>
                             <td>{d.title}</td>
 
-                            
-
-                            
                             <td>
-                               
-                                <Link className='btn btn-secondary' onClick={() =>{handleQuery(d)}}>Pick</Link>
+                                <Link to={`/mentorqueryread/${d._id}`} className='btn btn-sm btn-info me-2'>Read</Link>
+
                             </td>
+                            
+                            <td> <Link className='btn btn-secondary' onClick={() =>{handleclose(d)}} >Close </Link></td>
                             <td>{d.status}</td>
-                            <td>{d.mentorid}</td>
 
 
 

@@ -76,7 +76,7 @@ const Register = () => {
             // console.log("user registration succesfully done");
 
 
-            const data = await fetch("http://localhost:5000/user/register", {
+            const data = await fetch("https://capstonebackend-ivdw.onrender.com/user/register", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json"
@@ -89,7 +89,7 @@ const Register = () => {
             const res = await data.json();
             // console.log(res.status);
 
-            if (res.status === 201) {
+            if (res.status === 200) {
                 toast.success("Registration Successfully done 😃!", {
                     position: "top-center"
                 });
@@ -122,6 +122,7 @@ const Register = () => {
                             <label htmlFor="course">Select course    </label>
                             <br/><br/>
                             <select name="course" id="course" onChange={setVal} value={inpval.course}>
+    <option >Select Course</option>
 
     <option >Full Stack Development</option>
 

@@ -52,7 +52,7 @@ const Login = () => {
             // console.log("user login succesfully done");
 
 
-            const data = await fetch("http://localhost:5000/user/login",{
+            const data = await fetch("https://capstonebackend-ivdw.onrender.com/user/login",{
                 method:"POST",
                 headers:{
                     "Content-Type":"application/json"
@@ -63,20 +63,25 @@ const Login = () => {
             });
 
             const res = await data.json();
-             // console.log(res);
+              console.log(res);
 
-            if(res.status === 201 &&res.result.userValid.role=="student"){
+            if(res.status === 200 &&res.result.userValid.role==="student"){
                 localStorage.setItem("usersdatatoken",res.result.token);
+                localStorage.setItem("_id",res.result.userValid._id);
                 history("/dash")
                 setInpval({...inpval,email:"",password:""});
-            }else if(res.status === 201 &&res.result.userValid.role=="mentor"){
+            }else if(res.status === 200 &&res.result.userValid.role==="mentor"){
                 localStorage.setItem("usersdatatoken",res.result.token);
+                localStorage.setItem("_id",res.result.userValid._id);
+
                 history("/mentordash")
                 setInpval({...inpval,email:"",password:""});
 
             }
-            else if(res.status === 201 &&res.result.userValid.role=="Admin"){
+            else if(res.status === 200 &&res.result.userValid.role==="Admin"){
                 localStorage.setItem("usersdatatoken",res.result.token);
+                localStorage.setItem("_id",res.result.userValid._id);
+
                 history("/Admindash")
                 setInpval({...inpval,email:"",password:""});
 

@@ -1,18 +1,42 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
+import { toast } from 'react-toastify';
+
 
 export default function StudentQuery() {
 
-
+const _id = localStorage.getItem("_id");
     
     const [data ,setData] = useState([])
     useEffect(()=>{
-        axios.get('http://localhost:5000/query/getAllQuery')
+        axios.get(`https://capstonebackend-ivdw.onrender.com/query/getUserQueryonly/${_id}`)
         .then(res =>setData(res.data.data))
         .catch(err =>console.log(err))
 
     },[])
+    console.log(data)
+
+    function handleclose(d){
+        axios.put(`https://capstonebackend-ivdw.onrender.com/query/queryclose/${d._id}`)
+        .then(res =>setData(res.data.data))
+        .catch(err =>console.log(err))
+    }
+    function handlereopen(d){
+        if(data.status == "closed"){
+            axios.put(`http://localhost:5000/query/querystudentreopen/${d._id}`)
+        .then(res =>setData(res.data.data))
+        .catch(err =>console.log(err))
+
+        }else{
+           // alert("welcome");
+           alert("Query is Not Assigned or Closed")
+            toast.warning("Query is Not Assigned or Closed", {
+                position: "top-center"
+            });
+        }
+    }
+
 
 
    
@@ -39,22 +63,28 @@ export default function StudentQuery() {
                     <th>Title</th>
                     <th>Voice</th>
                     <th>Action</th>
+                    <th>Assigned to</th>
+                    <th>Status</th>
 
 
                 </tr>
             </thead>
             <tbody>
                 {
-                    data.map((d, i) =>(
+                    data?.map((d, i) =>(
                         <tr key={i}>
                             <td>{d._id}</td>
                             <td>{d.category}</td>
                             <td>{d.title}</td>
                             <td>{d.voice}</td>
                             <td>
-                                <Link to={`/${d._id}`} className='btn btn-sm btn-info me-2'>Solve</Link>
+                                <Link  className='btn btn-sm btn-info me-2' onClick={() =>{handleclose(d)}}>close</Link>
+                                <Link  className='btn btn-sm btn-info me-2' onClick={() =>{handlereopen(d)}}>Reopen</Link>
+
 
                             </td>
+                            <td>Mentor name</td>
+                            <td>{d.status}</td>
 
 
 

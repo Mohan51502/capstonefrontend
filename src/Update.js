@@ -23,8 +23,9 @@ function Update() {
 const setVal = (e) => {
     // console.log(e.target.value);
     const { name, value } = e.target;
+    console.log(data);
 
-    setInpval(() => {
+    setData(() => {
         return {
             ...inpval,
             [name]: value
@@ -32,14 +33,14 @@ const setVal = (e) => {
     })
 };
 function handleupdate(){
-    axios.put('http://localhost:5000/user'+ _id)
+    axios.put('https://capstonebackend-ivdw.onrender.com/user'+ _id)
       .then(res =>setData(res.data.data))
       .catch(err =>console.log(err))
 
 }
 
   useEffect(()=>{
-      axios.get('http://localhost:5000/user/getAllUser/'+ _id)
+      axios.get('https://capstonebackend-ivdw.onrender.com/user/getAllUser/'+ _id)
       .then(res =>setData(res.data.data))
       .catch(err =>console.log(err))
 

@@ -8,7 +8,7 @@ export default function ViewStudent() {
     
     const [data ,setData] = useState([])
     useEffect(()=>{
-        axios.get('http://localhost:5000/user/getStudentonly')
+        axios.get('https://capstonebackend-ivdw.onrender.com/user/getStudentonly')
         .then(res =>setData(res.data.data))
         .catch(err =>console.log(err))
 
@@ -19,9 +19,9 @@ export default function ViewStudent() {
     const handledelete  = (_id) =>{
         const confirm = window.confirm("Would you like to Delete?");
         if(confirm){
-            axios.delete(`http://localhost:5000/user/getAllUser/` +_id)
+            axios.delete(`https://capstonebackend-ivdw.onrender.com/user/` +_id)
             .then(res => {
-                navigate(`/viewuser`);
+                navigate(`/viewusers`);
             }).catch(err => console.log(err));
         }
     }

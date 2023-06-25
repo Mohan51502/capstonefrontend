@@ -21,7 +21,7 @@ const Dashboard = () => {
     const StudentDashboardValid = async () => {
         let token = localStorage.getItem("usersdatatoken");
 
-        const res = await fetch("http://localhost:5000/user/validuser", {
+        const res = await fetch("https://capstonebackend-ivdw.onrender.com/user/validuser", {
             method: "GET",
             headers: {
                 "Content-Type": "application/json",
@@ -31,7 +31,7 @@ const Dashboard = () => {
 
         const data = await res.json();
 
-        if (data.status === 201) {
+        if (data.status === 200) {
             setLoginData(data)
             history("/dash");        } else {
            // console.log("user verify");
@@ -41,10 +41,8 @@ const Dashboard = () => {
 
 
     useEffect(() => {
-        setTimeout(() => {
             StudentDashboardValid();
             setData(true)
-        }, 1000)
 
     }, [])
 

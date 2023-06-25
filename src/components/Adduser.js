@@ -77,7 +77,7 @@ const Adduser = () => {
             // console.log("user registration succesfully done");
 
 
-            const data = await fetch("http://localhost:5000/user/register", {
+            const data = await fetch("https://capstonebackend-ivdw.onrender.com/user/register", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json"
@@ -90,7 +90,7 @@ const Adduser = () => {
             const res = await data.json();
             // console.log(res.status);
 
-            if (res.status === 201) {
+            if (res.status === 200) {
                 toast.success("User Added Successfully  😃!", {
                     position: "top-center"
                 });

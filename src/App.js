@@ -44,6 +44,7 @@ import MentorQueryRead from "./Pages/MentorQueryRead";
 import StudentQuery from "./Pages/StudentQuery";
 import AdminQuery from "./Pages/AdminQuery";
 import AdminQueryRead from "./Pages/AdminQueryRead";
+import MentorPickedQuery from "./Pages/MentorPickedQuery";
 
 
 
@@ -59,7 +60,7 @@ function App() {
   const DashboardValid = async () => {
     let token = localStorage.getItem("usersdatatoken");
 
-    const res = await fetch("http://localhost:5000/validuser", {
+    const res = await fetch("https://capstonebackend-ivdw.onrender.com/validuser", {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
@@ -100,7 +101,7 @@ function App() {
 
 
 
-    if (data.status == 401 || !data) {
+    if (data.status == 400 || !data) {
       console.log("user not valid");
     } else {
       //console.log("user verify");
@@ -162,6 +163,8 @@ function App() {
               <Route path="/studentquery" element={<StudentQuery />} />
               <Route path="/adminquery" element={<AdminQuery />} />
               <Route path="/adminqueryread/:_id" element={<AdminQueryRead />} />
+              <Route path="/mentorpickedquery" element={<MentorPickedQuery/>} />
+
 
 
 

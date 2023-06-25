@@ -20,7 +20,7 @@ const MentorDashboard = () => {
     const MentorDashboardValid = async () => {
         let token = localStorage.getItem("usersdatatoken");
 
-        const res = await fetch("http://localhost:5000/user/validuser", {
+        const res = await fetch("https://capstonebackend-ivdw.onrender.com/user/validuser", {
             method: "GET",
             headers: {
                 "Content-Type": "application/json",
@@ -30,7 +30,7 @@ const MentorDashboard = () => {
 
         const data = await res.json();
 
-        if (data.status === 201 ) {
+        if (data.status === 200 ) {
             setLoginData(data)
             history("/mentordash");        } else {
            // console.log("user verify");
@@ -40,10 +40,8 @@ const MentorDashboard = () => {
 
 
     useEffect(() => {
-        setTimeout(() => {
             MentorDashboardValid();
             setData(true)
-        }, 1000)
 
     }, [])
 
@@ -59,7 +57,7 @@ const MentorDashboard = () => {
 
         // const data = await res.json()
 
-        // if (data.status == 201) {
+        // if (data.status == 200) {
         //     console.log("user valid")
         // } else {
         //     console.log(data);
