@@ -79,7 +79,7 @@ const _id = localStorage.getItem("_id");
                             <td>{d.voice}</td>
                             <td>
                                 <Link  className='btn btn-sm btn-info me-2' onClick={() =>{handleclose(d)}}>close</Link>
-                                <Link  className='btn btn-sm btn-info me-2' onClick={() =>{handlereopen(d)}}>Reopen</Link>
+                                {/* <Link  className='btn btn-sm btn-info me-2' onClick={() =>{handlereopen(d)}}>Reopen</Link> */}
 
 
                             </td>
