@@ -41,8 +41,11 @@ const AdminDashboard = () => {
 
 
     useEffect(() => {
+        setTimeout(() => {
+
             AdminDashboardValid();
             setData(true)
+        },1000)
 
     }, [])
 

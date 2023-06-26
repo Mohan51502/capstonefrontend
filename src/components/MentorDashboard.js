@@ -40,8 +40,11 @@ const MentorDashboard = () => {
 
 
     useEffect(() => {
+        setTimeout(() => {
+
             MentorDashboardValid();
             setData(true)
+        },1000)
 
     }, [])
 

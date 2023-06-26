@@ -35,6 +35,8 @@ export default function AdminQuery() {
                     <th>Category</th>
                     <th>Prefered Voive</th>
                     <th>Title</th>
+                    <th>Picked By</th>
+                    <th>Status</th>
                     <th>Action</th>
 
 
@@ -49,6 +51,8 @@ export default function AdminQuery() {
                             <td>{d.category}</td>
                             <td>{d.voice}</td>
                             <td>{d.title}</td>
+                            <td>{d.mentorid}</td>
+                            <td>{d.status}</td>
 
                             <td>
                                 <Link to={`/adminqueryread/${d._id}`} className='btn btn-sm btn-info me-2'>Read</Link>

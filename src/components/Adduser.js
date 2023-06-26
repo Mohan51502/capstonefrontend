@@ -122,6 +122,7 @@ const Adduser = () => {
                             <label htmlFor="role">Select Role    </label>
                             <br/><br/>
                             <select name="role" id="role" onChange={setVal} value={inpval.role}>
+                            <option >Select Role</option>
 
     <option >student</option>
 
@@ -133,6 +134,7 @@ const Adduser = () => {
                             <label htmlFor="course">Select course    </label>
                             <br/><br/>
                             <select name="course" id="course" onChange={setVal} value={inpval.course}>
+                            <option >Select course</option>
 
    
                             <option >Full Stack Development</option>

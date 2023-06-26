@@ -41,8 +41,11 @@ const Dashboard = () => {
 
 
     useEffect(() => {
+        setTimeout(() => {
+
             StudentDashboardValid();
             setData(true)
+        },1000)
 
     }, [])
 
