@@ -82,7 +82,7 @@ const Dashboard = () => {
                     <img src="./man.png" style={{ width: "200px", marginTop: 20 }} alt="" />
                     <h1>User Name:{logindata ? logindata.ValidUserOne.fname : ""}</h1>
                     <h1> course:{logindata ? logindata.ValidUserOne.course : ""}</h1>
-                    <img src='https://img.freepik.com/premium-photo/social-media-marketing-agency-multiple-concept-designs_891428-558.jpg' alt='loginlogo' className='login-logo'/>
+                    <img src='https://static.vecteezy.com/system/resources/previews/002/532/129/original/colleagues-at-business-meeting-flat-landing-page-vector.jpg' alt='loginlogo' className='login-logo'/>
 
                     </div>
                     
