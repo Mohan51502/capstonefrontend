@@ -56,7 +56,7 @@ const Register = () => {
                 position: "top-center"
             });
         } else if (password.length < 6) {
-            toast.error("password must be 6 char!", {
+            toast.error("password must be greater than 5 char!", {
                 position: "top-center"
             });
         } else if (cpassword === "") {
@@ -65,7 +65,7 @@ const Register = () => {
             });
         }
         else if (cpassword.length < 6) {
-            toast.error("confirm password must be 6 char!", {
+            toast.error("confirm password must be greater than 5 char!", {
                 position: "top-center"
             });
         } else if (password !== cpassword) {
@@ -94,6 +94,8 @@ const Register = () => {
                     position: "top-center"
                 });
                 setInpval({ ...inpval, fname: "", email: "",course: "",phonenumber:"", password: "", cpassword: "" });
+            } else{
+                toast.error(" Email is already registered or Server Error")
             }
         }
     }
